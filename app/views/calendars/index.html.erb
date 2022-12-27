@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div>
   <%= form_with model: @plan, url: calendars_path, class: 'form' do |f| %>
     <%= f.label :日付を選択, class: 'lavel' %>
@@ -15,13 +16,37 @@
           <% day[:month] %>/<% day[:date] %>
         </div>
         <ul class='content'>
+=======
+<%= form_with url: "/calendars", method: :post, local: true do |form| %>
+  <%= form.label :日付を選択 %>
+  <%= form.date_field :date %>
+  <%= form.label :予定を入力 %>
+  <%= form.text_field :plan %>
+  <%= form.submit '保存' %>
+<% end %>
+
+<div class='calendar'>
+  <% @week_days.each do |day| %>
+    <div class='item'>
+      <div class='date'>
+        <%= day[:month] %>/<%= day[:date] %><%= day[:wday] %>
+      </div>
+      <ul class='content'>
+>>>>>>> parent of 56c8aa7 (Merge branch 'first_training' into main)
         <% if day[:plans].length != 0 %>
           <% day[:plans].each do |plan| %>
             <li class='plan-list'>・<%= plan %></li>
           <% end %>
         <% end %>
+<<<<<<< HEAD
         </ul>
       </div>
     <% end %>
   </div>
+=======
+       <% end %>
+      </ul>
+    </div>
+<% end %>
+>>>>>>> parent of 56c8aa7 (Merge branch 'first_training' into main)
 </div>
